@@ -1,32 +1,33 @@
 import java.util.Random;
-
 public class RandomNumbers {
-    public static void main(String[]args) {
+    public static int maxNumber;
+    public static int minNumber;
+
+    private static int randomNumbers() {
         Random random = new Random();
-        int result = 0;
-
-        int randomNumber = random.nextInt(31);
-        int min = 0;
-        int max = 30;
-        int sum = 0;
-        while (sum <= 5000) {
-            int temp =random.nextInt(31);
-            sum = sum + temp;
-            result++;
-            System.out.println(temp + "+" + "=" + sum);
-            if (temp < min) {
-                min = temp;
-                System.out.println("minimalna wylosowana to "  + " "+ min);
-            }
-            if (temp > max) {
-                max = temp;
-                System.out.println("maksymalna wylosowana to" + " "+ min);
-            }
+        int number = 0;
+        for(int i=number + number; i < 5001; i++ ) {
+            int randomNumber = random.nextInt(31);
+            number = randomNumber;
         }
-        System.out.println(result);
+        return number;
     }
-
-
-
-
+    private static int maxValue() {
+        int numbersRandom = randomNumbers();
+        if (maxNumber<=numbersRandom) {
+            maxNumber = numbersRandom;
+        }
+        return maxNumber;
+    }
+    private static int minValue() {
+        int numbersRandom = randomNumbers();
+        if (minNumber>numbersRandom) {
+            minNumber = numbersRandom;
+        }
+        return minNumber;
+    }
+    public static void main(String[] args) {
+        System.out.println(maxValue());
+        System.out.println(minValue());
+    }
 }
