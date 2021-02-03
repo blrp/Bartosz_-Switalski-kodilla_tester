@@ -10,4 +10,8 @@ public abstract class Job {
 
     }
 
+    public Job(int salary, String responsibilities) {
+        this.salary = salary;
+        this.responsibilities = responsibilities;
+    }
 }

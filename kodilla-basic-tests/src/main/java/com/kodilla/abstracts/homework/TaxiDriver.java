@@ -2,8 +2,9 @@ package com.kodilla.abstracts.homework;
 
 public class TaxiDriver extends Job {
 
-    @Override
-    public void showResponsibilities() {
-        System.out.println("Drive");
+    public TaxiDriver() {
+        super(3000, "Drive with people");
     }
+
+
 }
