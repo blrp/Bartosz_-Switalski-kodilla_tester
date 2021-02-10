@@ -5,6 +5,7 @@ public class BookApplication {
 
         BookManager.createBook("Pan Tadeusz","Adam Mickiewicz");
         BookManager.createBook("The Lord od the Rngs","J. R. R. Tolkien");
+        BookManager.createBook("Pan Tadeusz","Adam Mickiewicz");
 
 
         System.out.println("------");
