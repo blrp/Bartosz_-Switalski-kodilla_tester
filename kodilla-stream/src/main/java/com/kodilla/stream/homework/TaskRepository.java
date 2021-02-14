@@ -11,9 +11,9 @@ public class TaskRepository {
         List<Task> taskList = new ArrayList<>();
 
 
-        taskList.add(new Task("Pay of the phone bill", LocalDate.of(2020, 5, 1), LocalDate.of(2020, 5, 7)));
-        taskList.add(new Task("Buy new laptop", LocalDate.of(2020, 5, 15), LocalDate.of(2020, 5, 16)));
-        taskList.add(new Task("Send documents to costumer", LocalDate.of(2020, 5, 31), LocalDate.of(2020, 6, 20)));
+        taskList.add(new Task("Pay of the phone bill", LocalDate.of(2021, 5, 1), LocalDate.of(2021, 5, 7)));
+        taskList.add(new Task("Buy new laptop", LocalDate.of(2021, 5, 15), LocalDate.of(2021, 5, 16)));
+        taskList.add(new Task("Send documents to costumer", LocalDate.of(2021, 5, 31), LocalDate.of(2021, 6, 20)));
         return taskList;
     }
 }
