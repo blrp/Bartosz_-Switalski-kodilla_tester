@@ -12,6 +12,7 @@ public class StampsApplication {
         stamps.add(new Stamp("River", "small", "stamp"));
         stamps.add(new Stamp("Sea", "small", "stamp"));
         stamps.add(new Stamp("Mountains", "small", "stamp"));
+        stamps.add(new Stamp("Mountains", "small", "stamp"));
 
         System.out.println(stamps.size());
         for (Stamp stamp : stamps)
