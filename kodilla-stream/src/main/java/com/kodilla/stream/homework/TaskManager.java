@@ -9,8 +9,8 @@ public class TaskManager {
     public static void main(String[] args) {
         List<LocalDate> toDoDatesList = TaskRepository.getTasks()
                 .stream()
-                .filter(task -> task.getDeadline().isAfter(LocalDate.now())
-                        && task.getDeadline().isBefore(LocalDate.of(2021, 06, 01)))
+                .filter(task -> task.getDeadline().isAfter(LocalDate.now()))
+
                 .map(TaskManager::getDeadlineDate)
                 .collect(Collectors.toList());
         System.out.println(toDoDatesList);
