@@ -6,7 +6,7 @@ public class ForumStats {
     public static void main(String[] args) {
         double avgOverEqual40 = UsersRepository.getUsersList()
                 .stream()
-                .filter(user -> user.getNumberOfPost() >= 40)
+                .filter(user -> user.getAge() >= 40)
                 .mapToInt(user -> user.getNumberOfPost())
                 .average()
                 .getAsDouble();
@@ -15,7 +15,7 @@ public class ForumStats {
 
         double avgLess40 = UsersRepository.getUsersList()
                 .stream()
-                .filter(user -> user.getNumberOfPost() < 40)
+                .filter(user -> user.getAge() < 40)
                 .mapToInt(user -> user.getNumberOfPost())
                 .average()
                 .getAsDouble();
