@@ -3,17 +3,18 @@ package com.kodilla.optional.homework;
 import java.util.Optional;
 
 public class Student {
+
     private String studentName;
-    private Optional<String> teacher;
+    private Teacher teacher;
 
     public Student(String studentName, Teacher teacher) {
         this.studentName = studentName;
-        this.teacher = Optional.ofNullable(teacher.getName());
+        this.teacher = teacher;
     }
 
     public Student(String studentName) {
         this.studentName = studentName;
-        this.teacher = Optional.of("undefined");
+        this.teacher = teacher;
     }
 
     public String getStudentName() {
