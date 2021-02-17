@@ -14,14 +14,14 @@ public class Student {
 
     public Student(String studentName) {
         this.studentName = studentName;
-        this.teacher = teacher;
+        this.teacher = null;
     }
 
     public String getStudentName() {
         return studentName;
     }
 
-    public String getTeacher() {
-        return String.valueOf(teacher);
+    public Teacher getTeacher() {
+        return teacher;
     }
 }
