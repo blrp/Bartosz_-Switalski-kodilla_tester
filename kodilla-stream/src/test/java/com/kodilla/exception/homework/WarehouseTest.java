@@ -1,6 +1,10 @@
 package com.kodilla.exception.homework;
 
-import org.junit.jupiter.api.Test;
+
+
+
+
+import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,7 +14,4 @@ class WarehouseTest {
         Warehouse warehouse = new Warehouse();
         warehouse.getOrder("Not existing order");
     }
-
-
-
 }
