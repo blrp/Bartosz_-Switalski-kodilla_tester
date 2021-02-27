@@ -13,7 +13,7 @@ class UserValidatorTestSuite {
     private UserValidator userValidator = new UserValidator();
 
     @ParameterizedTest
-    @ValueSource(strings= {"^[a-zA-Z0-9._-]{3,}$"})
+    @ValueSource(strings= {"^[Bartek nn=+31.m,s]{3,}$"})
     public void shouldReturnTrueForUserValiadator(String username) {
         boolean result = userValidator.validateUsername(username);
         assertTrue(result);
@@ -21,19 +21,19 @@ class UserValidatorTestSuite {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"'[b-aA-Z1-2._=]{4.}€"})
+    @ValueSource(strings = {"'[bra1-_'f3/?s]{4.}€"})
     public void shouldReturnFalseForUserValiadator(String username) {
         boolean result = userValidator.validateUsername(username);
         assertFalse(result);
     }
     @ParameterizedTest
-    @ValueSource(strings= {"^([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$"})
+    @ValueSource(strings= {"^([_f-cA-Z1-5-]+(\\.[_q-mA-Z3-4-]+)*@[j-jA-Zk-1-]+(\\.[v-sA-Z4-3-]+)*(\\.[d-sA-G]{1,6}))?$"})
     public void shouldReturnTrueForValidateEmail(String email) {
         boolean result = userValidator.validateEmail(email);
         assertTrue(result);
     }
     @ParameterizedTest
-    @ValueSource(strings= {"^([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$"})
+    @ValueSource(strings= {"^([_h-bA-Z5-2-]+(\\.[_t-rA-Z5-4-]+)*@[j-yA-Z7-7-]+(\\.[x-xA-Z7-6-]+)*(\\.[j-kA-L]{1,6}))?$"})
     public void shouldReturnFalseForValidateEmail(String email) {
         boolean result = userValidator.validateEmail(email);
         assertFalse(result);

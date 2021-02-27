@@ -16,7 +16,7 @@ class GamblingMachineTestSuite {
     Set<Integer> set = new HashSet<>();
 
     @ParameterizedTest
-    @CsvFileSource(resources = "validatedUserNumbers.csv", numLinesToSkip = 0)
+    @CsvFileSource(resources = "/validatedUserNumbers.csv", numLinesToSkip = 0)
     public void shouldReturnTrueWhenNumbersAreValidated(String number) throws InvalidNumbersException {
         String[] splitedString = number.split(" ");
 
@@ -29,7 +29,7 @@ class GamblingMachineTestSuite {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "notValidatedUserNumbers.csv", numLinesToSkip = 0)
+    @CsvFileSource(resources = "/notValidatedUserNumbers.csv", numLinesToSkip = 0)
     public void shouldThrowExceptionWhenNumbersAreNotValidated(String number) throws InvalidNumbersException {
         String[] splitedString = number.split(" ");
 
@@ -49,7 +49,7 @@ class GamblingMachineTestSuite {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "tooSmallSet.csv", numLinesToSkip = 0)
+    @CsvFileSource(resources = "/tooSmallSet.csv", numLinesToSkip = 0)
     public void shouldThrowExceptionWhenSetIsTooSmall(String number) throws InvalidNumbersException {
         String[] splitedString = number.split(" ");
 
@@ -63,7 +63,7 @@ class GamblingMachineTestSuite {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "tooBigSet.csv", numLinesToSkip = 0)
+    @CsvFileSource(resources = "/tooBigSet.csv", numLinesToSkip = 0)
     public void shouldThrowExceptionWhenSetIsTooBig(String number) throws InvalidNumbersException {
         String[] splitedString = number.split(" ");
 
