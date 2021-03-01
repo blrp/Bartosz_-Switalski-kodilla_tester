@@ -13,28 +13,28 @@ class UserValidatorTestSuite {
     private UserValidator userValidator = new UserValidator();
 
     @ParameterizedTest
-    @ValueSource(strings= {"^[Bartek nn=+31.m,s]{3,}$"})
-    public void shouldReturnTrueForUserValiadator(String username) {
+    @ValueSource(strings= {"Bartek","Anna2","krystian72","Piotr1_0","ddd/="})
+    public void shouldValidateUsername(String username) {
         boolean result = userValidator.validateUsername(username);
         assertTrue(result);
 
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"'[bra1-_'f3/?s]{4.}€"})
-    public void shouldReturnFalseForUserValiadator(String username) {
+    @ValueSource(strings = {"Bartek1","Anna2?","krystian72","Piotr1_0","ddd.="})
+    public void shouldNotValidateUsername(String username) {
         boolean result = userValidator.validateUsername(username);
         assertFalse(result);
     }
     @ParameterizedTest
-    @ValueSource(strings= {"^([_f-cA-Z1-5-]+(\\.[_q-mA-Z3-4-]+)*@[j-jA-Zk-1-]+(\\.[v-sA-Z4-3-]+)*(\\.[d-sA-G]{1,6}))?$"})
-    public void shouldReturnTrueForValidateEmail(String email) {
+    @ValueSource(strings= {"Sylwia@gmail.com\", \"bartek7@gmail.com\", \"DawiD._-@gmail.com\", \"&art.switaL@gmail.com\", \"BartE.SwItal$@wp.pl"})
+    public void shouldValidateEmail(String email) {
         boolean result = userValidator.validateEmail(email);
         assertTrue(result);
     }
     @ParameterizedTest
-    @ValueSource(strings= {"^([_h-bA-Z5-2-]+(\\.[_t-rA-Z5-4-]+)*@[j-yA-Z7-7-]+(\\.[x-xA-Z7-6-]+)*(\\.[j-kA-L]{1,6}))?$"})
-    public void shouldReturnFalseForValidateEmail(String email) {
+    @ValueSource(strings= {"Barti@aaa@ggg.com\", \" \", \"&@@€€%%$%+.com\", \"bartosz"})
+    public void shouldNotValidateEmail(String email) {
         boolean result = userValidator.validateEmail(email);
         assertFalse(result);
     }
