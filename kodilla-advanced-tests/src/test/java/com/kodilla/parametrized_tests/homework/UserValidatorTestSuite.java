@@ -27,13 +27,13 @@ class UserValidatorTestSuite {
         assertFalse(result);
     }
     @ParameterizedTest
-    @ValueSource(strings= {"Sylwia@gmail.com\", \"bartek7@gmail.com\", \"DawiD._-@gmail.com\", \"&art.switaL@gmail.com\", \"BartE.SwItal$@wp.pl"})
+    @ValueSource(strings= {"Sylwia@gmail.com", "bartek7@gmail.com", "DawiD._-@gmail.com", "&art.switaL@gmail.com", "BartE.SwItal$@wp.pl"})
     public void shouldValidateEmail(String email) {
         boolean result = userValidator.validateEmail(email);
         assertTrue(result);
     }
     @ParameterizedTest
-    @ValueSource(strings= {"Barti@aaa@ggg.com\", \" \", \"&@@€€%%$%+.com\", \"bartosz"})
+    @ValueSource(strings= {"Barti@aaa@ggg.com", "&@@€€%%$%+.com","bartosz"})
     public void shouldNotValidateEmail(String email) {
         boolean result = userValidator.validateEmail(email);
         assertFalse(result);
