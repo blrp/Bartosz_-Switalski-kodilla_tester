@@ -2,13 +2,13 @@ package com.kodilla.parametrized_tests.homework;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class GamblingMachineTestSuite {
 
@@ -24,8 +24,9 @@ class GamblingMachineTestSuite {
             set.add(Integer.parseInt(num));
         }
 
-        gamblingMachine.howManyWins(set);
-        assertEquals(6, set.size());
+        int howmanyWins = gamblingMachine.howManyWins(set);
+        assertTrue(howmanyWins >= 0 && howmanyWins<=6);
+
     }
 
     @ParameterizedTest
@@ -43,9 +44,9 @@ class GamblingMachineTestSuite {
     }
 
     @ParameterizedTest
-    @NullAndEmptySource
+    @EmptySource
     public void shouldThrowExceptionWhenSetIsNullOrEmpty(Set<Integer> input) {
-        assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(set));
+        assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(input));
     }
 
     @ParameterizedTest
