@@ -1,6 +1,8 @@
 package pages;
 
 import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,6 +26,10 @@ public class GoogleSearch extends AbstractPage {
 
     public void searchResults() {
         PageFactory.initElements(driver, GoogleSearch.class);
+        driver.switchTo().frame(0); //zamykamy zgody
+        WebElement consentButton = driver.findElement(By.cssSelector("#introAgreeButton"));
+        WebDriverWait wait = new WebDriverWait(driver,20);
+        wait.until(ExpectedConditions.elementToBeClickable(consentButton)).click();
         inputField.sendKeys("Kodilla");
         googleResults = loadResults(driver);
         googleResults.iSeeResults();

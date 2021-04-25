@@ -20,7 +20,7 @@ public class GoogleResults extends AbstractPage {
 
     public void iSeeResults() {
         System.out.println("I see results");
-        System.out.println(results.size());
+        System.out.println("Number of results: " + results.size());
     }
     public WebElement oneRandomResult(){
         Random random = new Random();
