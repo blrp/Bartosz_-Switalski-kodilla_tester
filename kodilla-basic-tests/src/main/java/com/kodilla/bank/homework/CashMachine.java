@@ -1,79 +1,98 @@
 package com.kodilla.bank.homework;
 
 public class CashMachine {
-    private int[] values;
-    private int size;
 
 
-    public CashMachine(int i) {
+        private int[] transactions;
+        private int size;
 
-        this.values = new int[0];
-        this.size = 0;
-    }
 
-    public CashMachine() {
-
-    }
-
-    public void add(int value) {
-        this.size++;
-        int[] newTab = new int[this.size];
-        System.arraycopy(values, 0, newTab, 0, values.length);
-        newTab[this.size - 1] = value;
-        this.values = newTab;
-    }
-
-    public int[] getValues() {
-
-        return values;
-    }
-    public double getSaldo() {
-        if (this.values.length == 0) {
-            return 0;
+        public int[] getTransactions() {
+            return transactions;
         }
-        double sum = 0;
-        for(int i = 0; i < this.values.length; i++) {
-            sum += this.values[i];
+
+        public int getSize() {
+            return size;
         }
-        return sum;
-    }
-    public int getTransaction() {
 
-        return size;
-    }
-    public int getWyplaty() {
-        int counter = 0;
-        for(int i = 0; i< this.values.length; i++) {
-            if (this.values[i] < 0) {
-                counter ++;
+        public CashMachine() {
+            this.transactions = new int[0];
+            this.size = 0;
+        }
 
+
+        public int getBalance() {
+            int sum = 0;
+            for (int i = 0; i < transactions.length; i++) {
+                sum = sum + transactions[i];
+            }
+            return sum;
+        }
+
+
+
+        public void addTransaction(int amount) {
+            if ((getBalance() + amount) >= 0) {
+                this.size++;
+                int[] newTab = new int[this.size];
+                System.arraycopy(transactions, 0, newTab, 0, transactions.length);
+                newTab[this.size - 1] = amount;
+                this.transactions = newTab;
+            } else {
+                System.out.println("You are unable to withdraw money from ATM now. No sufficient funds in the ATM at the moment.");
             }
         }
-        return counter;
-    }
-    public int getWplaty() {
-        int counter = 0;
-        for (int i = 0; i < this.values.length; i++) {
-            if (this.values[i] > 0) {
-                counter++;
 
+
+
+        public int getNumberOfWithdrawals() {
+            int count = 0;
+            for (int i = 0; i < transactions.length; i++) {
+                if (transactions[i] < 0) {
+                    count++;
+                }
             }
+            return count;
         }
-        return counter;
-    }
-    public double getAverage() {
-        if (this.values.length == 0) {
-            return 0;
-        }
-        double sum = 0;
-        for(int i = 0; i < this.values.length; i++) {
-            sum += this.values[i];
-        }
-        return sum/this.values.length;
-    }
 
-    public int[] getTransactions() {
-        return new int[0];
-    }
 
-}
+
+        public int getNumberOfDeposits() {
+            int count = 0;
+            for (int i = 0; i < transactions.length; i++) {
+                if (transactions[i] > 0) ;
+                count++;
+            }
+            return count;
+        }
+
+
+
+        public double getAverageValueOfWithdrawals() {
+            if (transactions.length == 0 || getNumberOfWithdrawals() == 0) {
+                return 0;
+            }
+            double sum = 0;
+            for (int i = 0; i < transactions.length; i++) {
+                if (transactions[i] < 0) {
+                    sum += transactions[i];
+                }
+            }
+            return sum / getNumberOfWithdrawals();
+        }
+
+
+
+        public double getAverageValueOfDeposits() {
+            if (transactions.length == 0 || getNumberOfDeposits() == 0) {
+                return 0;
+            }
+            double sum = 0;
+            for (int i = 0; i < transactions.length; i++) {
+                if (transactions[i] > 0) {
+                    sum += transactions[i];
+                }
+            }
+            return sum / getNumberOfDeposits();
+        }
+    }
