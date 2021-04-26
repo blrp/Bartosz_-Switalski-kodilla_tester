@@ -28,11 +28,11 @@ public class ApplicationTest {
     public GenericContainer webServer =
             new GenericContainer(
                     new ImageFromDockerfile()
-                            .withFileFromClasspath("/tmp/sylwia.html", "sylwia.html")
+                            .withFileFromClasspath("/tmp/bartek.html", "bartek.html")
                             .withDockerfileFromBuilder(builder ->
                                     builder
                                             .from("httpd:2.4")
-                                            .copy("/tmp/sylwia.html", "/usr/local/apache2/htdocs")
+                                            .copy("/tmp/bartek.html", "/usr/local/apache2/htdocs")
                                             .build()))
                     .withNetwork(network)
                     .withNetworkAliases("my-server")
