@@ -28,6 +28,6 @@ public class GoogleResults extends AbstractPage {
         WebElement webElement = results.get(randomPageId);
         System.out.println(webElement.getTagName());
         System.out.println(webElement);
-        return results.get(randomPageId);
+        return webElement;
     }
 }
